@@ -1,0 +1,132 @@
+{% load static %}
+@font-face {
+    font-family: Roboto;
+    src: url({% static 'font/Roboto-Regular.ttf' %});
+  }
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+}
+
+/*navbar style*/
+.nav{
+    background: rgba(197, 216, 231, 0.5);
+}
+.nav-con{
+    max-width: 95%;
+    width: 85%;
+    margin:  auto;
+    padding: 20px 0px;
+}
+.icon{
+    display: inline;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30.5231px;
+    line-height: 36px;
+    color: #2041B6;
+}
+.nav-btn-left{
+    display: inline;
+    float: right;
+    width: 81px;
+    height: 36.82px;
+}
+/*button style*/
+.btn{
+    text-decoration: none;
+    padding:  6px 10px;
+    background: #2041B6;
+    border-radius: 11.3287px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17.2893px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+/*body style*/
+.container{
+    width: 790px;
+    max-width: 85%;
+    margin: auto;
+}
+.parti1{
+    height: 80vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.parti1>h1{
+    font-size: 48px;
+}
+.parti1>h2{
+    font-size: 36px;
+    font-weight: normal;
+}
+.parti1>h3{
+    font-weight: normal;
+}
+hl{
+    color: #2041B6;
+}
+
+.parti2{
+    height: 75vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-input{
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 15px 20px;
+    border: 0px solid;
+    max-width: 550px;
+    width: 85%;
+    margin: 20px 0px;
+    outline: none;
+}
+.inlige-haret{
+    height: 20px;
+}
+.soltion{
+    margin-top: 20px;
+}
+
+.post-grid{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width: 600px) {
+    .post-grid{
+        display: block;
+        margin-top: 20px;
+    }
+    .post-grid>div{
+        margin-bottom: 30px;
+    }
+  }
+ /*footer style*/
+.foot{
+    background: #2041B6;
+}
+.foot-con{
+    max-width: 95%;
+    width: 85%;
+    margin:  auto;
+}
+.foot-link{
+    color: white;
+    display:flex;
+    justify-content: center;
+}
+.foot-link>p{
+    padding: 15px;
+    margin: 5px;
+}

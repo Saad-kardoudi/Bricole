@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>hell on world</h1>
-</body>
-</html>
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} index {% endblock %}
+
+{% block body %}
+	<nav class="nav">
+		<div class="nav-con">
+			<div class="icon"><img src="{% static 'icon/icons8_job_seeker_24px.png' %}" alt=""><span>Brikol</span></div>
+
+			<div class="nav-btn-left">
+				<a href="" class="btn">Login</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<section class="parti1">
+			<h1>Beyond Software</h1>
+			<h2>Creating mini jobs <hl>opportunity</hl>
+			</h2>
+			<input type="text" name="" class="search-input" id="" placeholder="Search for a job ....">
+			<h3>made with 💙 by the</h3>
+			<h3>Community</h3>
+		</section>
+		<section class="parti2">
+			<div class="soltion">
+				<h2>Our Solution</h2><br>
+				<p>Welcome to our micro jobs site. We turn your free time into money.Minijobz unique approach</p>
+				<p>guaratee employers that every task paid is successfully completed while guaranteeing that workers</p>
+				<p>get paid for every job they complete. Post jobs and get success. Do jobs and earn money. Why not</p>
+				<p>to sign up right now!</p>
+			</div>
+			<div class="post-grid">
+				<div>
+					<img class="" src="{% static 'icon/icons8_man_with_monitor_100px.png' %}" alt="" />
+					<h4>You are an employer</h4>
+					<p>Post mini jobs</p>
+					<p>Find great workers</p>
+					<p>Get amazing results</p>
+					<a href="" class="btn">Post a job</a>
+				</div>
+				<div>
+					<img class="" src="{% static 'icon/icons8_worker_100px.png' %}" alt="">
+					<h4>Looking for Work</h4>
+					<p>Find job of your choice</p>
+					<p>Complete simple tasks</p>
+					<p>Earn Money</p>
+					<a href="" class="btn">Get started</a>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer class="foot">
+		<div class="foot-con">
+			<div class="foot-link">
+				<p>Home</p>
+				<p>About us</p>
+				<p>Terms & Conditions</p>
+				<p>Contact us</p>
+			</div>
+		</div>
+		<div class="foot-con foot-link">
+			<p>Copyright © 2020 Brikol. All rights reserved.</p>
+		</div>
+	</footer>
+{% endblock %}

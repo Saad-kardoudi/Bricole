@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">{% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" href="{% static 'icon/icons8_job_seeker_24px.png' %}" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>
