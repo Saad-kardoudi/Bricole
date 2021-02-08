@@ -1,23 +1,18 @@
 {% extends 'home/layout.html' %}
 {% load static %}
-{% block title %} index {% endblock %}
-
+{% block title %}Brikol{% endblock %}
 {% block body %}
-	<nav class="nav">
-		<div class="nav-con">
-			<div class="icon"><img src="{% static 'icon/icons8_job_seeker_24px.png' %}" alt=""><span>Brikol</span></div>
-
-			<div class="nav-btn-left">
-				<a href="" class="btn">Login</a>
-			</div>
-		</div>
-	</nav>
 	<div class="container">
 		<section class="parti1">
 			<h1>Beyond Software</h1>
 			<h2>Creating mini jobs <hl>opportunity</hl>
 			</h2>
-			<input type="text" name="" class="search-input" id="" placeholder="Search for a job ....">
+			<form class="search-form" action="" method="post">
+				<input type="text" name="" class="search-input" id="" placeholder="Search for a job ....">
+				<button class="icon-Search" type="submit">
+					<img src="{% static 'icon/icons8_search_30px.png' %}" alt="Search">
+				</button>
+			</form>
 			<h3>made with 💙 by the</h3>
 			<h3>Community</h3>
 		</section>
@@ -49,17 +44,4 @@
 			</div>
 		</section>
 	</div>
-	<footer class="foot">
-		<div class="foot-con">
-			<div class="foot-link">
-				<p>Home</p>
-				<p>About us</p>
-				<p>Terms & Conditions</p>
-				<p>Contact us</p>
-			</div>
-		</div>
-		<div class="foot-con foot-link">
-			<p>Copyright © 2020 Brikol. All rights reserved.</p>
-		</div>
-	</footer>
 {% endblock %}

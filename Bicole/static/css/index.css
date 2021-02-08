@@ -1,12 +1,12 @@
-{% load static %}
 @font-face {
     font-family: Roboto;
-    src: url({% static 'font/Roboto-Regular.ttf' %});
+    src: url(font/Roboto-Regular.ttf);
   }
 *{
     padding: 0;
     margin: 0;
     font-family: Roboto;
+    box-sizing: border-box;
 }
 
 /*navbar style*/
@@ -26,6 +26,7 @@
     font-size: 30.5231px;
     line-height: 36px;
     color: #2041B6;
+    text-decoration : none;
 }
 .nav-btn-left{
     display: inline;
@@ -80,6 +81,13 @@ hl{
     text-align: center;
     margin-bottom: 20px;
 }
+.search-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .search-input{
     background: rgba(196, 196, 196, 0.5);
     border-radius: 20px;
@@ -87,9 +95,15 @@ hl{
     padding: 15px 20px;
     border: 0px solid;
     max-width: 550px;
-    width: 85%;
+    width: 100%;
     margin: 20px 0px;
     outline: none;
+}
+.icon-Search{
+    outline: none;
+    border: none;
+    background: none;
+    margin-left: -40px;
 }
 .inlige-haret{
     height: 20px;
@@ -129,4 +143,61 @@ hl{
 .foot-link>p{
     padding: 15px;
     margin: 5px;
+}
+/* log in*/
+.log-in{
+    padding: 45px 35px;
+    width: 450px;
+    max-width: 85%;
+    margin: 15vh auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+}
+.inputs{
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 15px 20px;
+    border: 0px solid;
+    max-width: 550px;
+    width: 100%;
+    margin: 20px 0px 0px 0px ;
+    outline: none;
+
+}
+.inputs::placeholder{
+    text-transform:capitalize ;
+}
+.large{
+    margin: 20px 0px;
+    width: 95%;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+}
+.bodyfull{
+    height: 100vh;
+}
+/* register */
+.register{
+    padding: 45px 35px;
+    width: 550px;
+    max-width: 85%;
+    margin: 15vh auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+}
+.presonal-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
 }

@@ -1,0 +1,15 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} Log in {% endblock %}
+{% block body %}
+	<div class="log-in">
+		<h2>Login</h2>
+		<form action="/" method="post">
+			<input class="inputs" type="text" name="username" id="Username" placeholder="Username" />
+			<input class="inputs" type="password" name="password" id="Password" placeholder="Password" />
+			<input class="btn large" type="submit">
+		</form>
+		<a href="/register" style="color:#2041B6;">You don't have an acount</a>
+	</div>
+{% endblock %}
+{% block foot %}position: fixed;bottom: 0px;width: 100vw;{% endblock %}

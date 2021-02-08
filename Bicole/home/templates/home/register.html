@@ -1,0 +1,22 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} Register {% endblock %}
+{% block body %}
+    <div class="register">
+        <h2>Register</h2>
+        <form action="/Log_in.html" method="post">
+            <div class="presonal-info">
+                <input class="inputs" type="text" name="firstname" id="firstname" placeholder="first name" />
+                <input class="inputs" type="text" name="lastname" id="lastname" placeholder="last name" />
+                <input class="inputs" type="text" name="phone" id="phone" placeholder="phone" />
+                <input class="inputs" type="text" name="city" id="city" placeholder="city" />
+                <input class="inputs" type="text" name="country" id="country" placeholder="country" />
+                <input class="inputs" type="text" name="adress" id="adress" placeholder="adress" />
+            </div>
+            <input class="inputs" type="text" name="username" id="Username" placeholder="Username" />
+            <input class="inputs" type="password" name="password" id="Password" placeholder="Password" />
+            <input class="btn large" type="submit">
+        </form>
+        <p>You alredy have an acount <a style="color:#2041B6;" href="/login">Log in</a></p>
+    </div>
+{% endblock %}

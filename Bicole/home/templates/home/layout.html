@@ -8,6 +8,28 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+	<nav class="nav">
+		<div class="nav-con">
+			<a href="/" class="icon"><img src="{% static 'icon/icons8_job_seeker_24px.png' %}" alt=""><span>Brikol</span></a>
+
+			<div class="nav-btn-left">
+				<a href="/login" class="btn">Login</a>
+			</div>
+		</div>
+	</nav>
     {% block body %}{% endblock %}
+    	<footer class="foot" style="{% block foot %}{% endblock %}">
+		<div class="foot-con">
+			<div class="foot-link">
+				<p>Home</p>
+				<p>About us</p>
+				<p>Terms & Conditions</p>
+				<p>Contact us</p>
+			</div>
+		</div>
+		<div class="foot-con foot-link">
+			<p>Copyright © 2020 Brikol. All rights reserved.</p>
+		</div>
+	</footer>
 </body>
 </html>
