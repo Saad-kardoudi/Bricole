@@ -1,0 +1,42 @@
+.hire-me{
+    width: 100%;
+    text-align: center;
+    background-color: #2041b6be;
+    border-radius: 0px 0px 20px 20px;
+    padding: 15px;
+    color: white;
+    margin-top: -20px;
+    z-index: 2;
+    backdrop-filter: blur(30px);
+    transition: 1.0s ease-in-out;
+    opacity: 0;
+}
+@card-height: 320px;
+.card{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #E2E2E2;
+    border-radius: 20px;
+    padding: 45px 35px;
+    height: @card-height;
+    transition: 0.3s ease-in-out;
+}
+.card>*{
+    margin: 5px 0px;
+}
+.card>img{
+    margin: 5px auto;
+    width: 154px;
+    border-radius: 50%;
+}
+.card-wrapper{
+    height: @card-height;
+    &:hover{
+        .hire-me{
+            display: block;
+            opacity: 1;
+        }
+    }
+}

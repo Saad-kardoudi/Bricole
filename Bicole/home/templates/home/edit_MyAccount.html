@@ -1,0 +1,64 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} Log in {% endblock %}
+{% block body %}
+    <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="personal-info">
+            <div class="img-container">
+                <img src="{{request.user.account.Acc_pic.url}}" alt="" id="accimg" class="img-acc">
+                <div class="middle">
+                    <label for="upload-photo" class="btn">Edit</label>
+                    {{form2.Acc_pic}}
+                </div>
+            </div>
+            <div>
+                {{form1.first_name}}
+                {{form1.last_name}}
+                {{form2.job}}
+            </div>
+        </div>
+        <div class="advance-info">
+            {{form2.bio}}
+            {{form2.city}}
+            <div class="Available-form">
+                {{form2.Available}}
+                <button type="submit" class="btn large">Update</button>
+            </div>
+        </div>
+            </form>
+        <div class="comments">
+            <h3>Last Comments</h3>
+            <div class="comment">
+                <h4>name of employ</h4>
+                <p> comment</p>
+            </div>
+            <div class="comment">
+                <h4>name of employ</h4>
+                <p> comment</p>
+            </div>
+            <div class="comment">
+                <h4>name of employ</h4>
+                <p> comment</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<script>
+       function previewFile(input) {
+        var file = $("input[type=file]").get(0).files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                $("#accimg").attr("src", reader.result);
+            }
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+{% endblock %}

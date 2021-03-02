@@ -1,0 +1,62 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} Log in {% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="personal-info">
+            <div class="img-container">
+                <img src="{{account.Acc_pic.url}}" alt="" id="accimg" class="img-acc">
+            </div>
+            <div class="name-job">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <h2>{{ account.job }}</h2>
+            </div>
+        </div>
+        <div class="advance-info">
+            <h4 class="textarea-inputs">
+                {{ account.bio }} </h4>
+
+            <div class="Available-form">
+                <h5 class="textarea-inputs"> {{ account.Available }} </h5>
+                <h5 class="textarea-inputs"> {{ account.adress }},{{ account.city }} </h5>
+            </div>
+            {% if user == request.user %}
+            <a href="{% url 'editAccount' %}" style="" class="btn">edit</a>
+            {% endif %}
+        </div>
+        <div class="comments">
+            <h3>Last Comments</h3>
+            <br/>
+	        {% if form is not None %}
+	        <form action="" method="POST">
+		        {% csrf_token %}
+				{{form.Worker}}
+		        {{form.employer}}
+		        {{form.Comment}}
+		        <div class="Available-form">
+		        {{form.rate}}
+		        <button type="submit" class="btn large">Send</button>
+			        </div>
+	        </form>
+	        <br/>
+	        {% endif %}
+	        {% for comment in comments %}
+            <div class="comment">
+                <a href=""><img src="{{comment.employer.Acc_pic.url}}" class="img-comment">
+	                <div><h4>{{ comment.employer.user.first_name }} {{ comment.employer.user.last_name }}</h4></div></a>
+                <p>{{ comment.Comment }}</p>
+            </div>
+	        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('.rating').rating();
+      });
+      var form_input= document.getElementsByTagName("input");
+	    form_input[1].value="{{ account.id }}";
+	    form_input[2].value="{{ employee.id }}";
+    </script>
+{% endblock %}

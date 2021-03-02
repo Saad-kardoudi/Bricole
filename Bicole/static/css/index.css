@@ -1,6 +1,6 @@
 @font-face {
     font-family: Roboto;
-    src: url(font/Roboto-Regular.ttf);
+    src: url(../font/Roboto-Regular.ttf);
   }
 *{
     padding: 0;
@@ -34,6 +34,48 @@
     width: 81px;
     height: 36.82px;
 }
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 /*button style*/
 .btn{
     text-decoration: none;
@@ -51,6 +93,11 @@
     width: 790px;
     max-width: 85%;
     margin: auto;
+}
+.container2{
+    width: 1100px;
+    max-width: 85%;
+    margin: 20px auto;
 }
 .parti1{
     height: 80vh;
@@ -85,6 +132,14 @@ hl{
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.search-form2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 15px;
     align-items: center;
     justify-content: center;
 }
@@ -167,7 +222,6 @@ hl{
     width: 100%;
     margin: 20px 0px 0px 0px ;
     outline: none;
-
 }
 .inputs::placeholder{
     text-transform:capitalize ;
@@ -200,4 +254,159 @@ hl{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
+}
+input[type="password"] {
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 15px 20px;
+    border: 0px solid;
+    max-width: 550px;
+    width: 100%;
+    margin: 20px 0px 0px 0px ;
+    outline: none;
+}
+input[type="password"]::placeholder{
+    text-transform:capitalize ;
+}
+/* home */
+.card-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 25px;
+    row-gap: 40px;
+    margin-bottom: 40px;
+}
+
+.stars{
+    color: #FFD700;
+    font-size: 20px;
+}
+/*Account page*/
+.img-container {
+  position: relative;
+  width: 100%;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.img-container:hover .image {
+  opacity: 0.3;
+}
+
+.img-container:hover .middle {
+  opacity: 1;
+}
+.img-acc{
+    object-fit: cover;
+    object-position: center center;
+    width: 273px;
+    height: 273px;
+    border-radius: 50%;
+    margin: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border :1px solid #2041B6 ;
+
+}
+.upload-photo {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+.personal-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 15px 20px;
+}
+.advance-info>*{
+    margin:10px 20px;
+}
+.textarea-inputs{
+    width: 95%;
+    padding: 15px 20px;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    resize: vertical;
+}
+.Available-form{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+.comments{
+    width: 95%;
+    margin: 20px;
+}
+.comment{
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background: rgba(196, 196, 196, 0.5);
+}
+.comment>*{
+
+    margin: 4px;
+}
+.comment>p{
+    margin-left: 35px;
+}
+.comment>a{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    text-decoration: none;
+    color: black;
+}
+.comment>a>div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+/* your account */
+.name-job{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+h5.textarea-inputs{
+    font-size: 15px;
+}
+
+.img-comment{
+    object-fit: cover;
+    object-position: center center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border :1px solid #2041B6 ;
+}
+/* Rating */
+.simple-rating{
+}
+
+.simple-rating i{
+    font-size: 20px;
+	color: #f5ba00;
+	display: inline-block;
+	padding: 1px 2px;
+	cursor: pointer;
 }

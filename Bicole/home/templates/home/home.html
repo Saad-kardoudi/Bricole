@@ -1,0 +1,34 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %} Log in {% endblock %}
+{% block body %}
+<div class="container2">
+<div>
+			<h3>Recrute Someone</h3>
+			<form class="search-form2" action="" method="post">
+				<input class="search-input" placeholder="Search for a keyword ... " type="text" name="" id=""
+					style="max-width: 740px;" />
+				<button class="btn large" type="submit">Search</button>
+			</form>
+		</div>
+		<div class="card-list">
+			<div class="card-wrapper">
+				<div class="card">
+					<img src="{% static 'img/image.jfif' %}" alt="">
+					<h3>nom/prenom</h3>
+					<h4>Job</h4>
+					<div class="stars">
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bxs-star'></i>
+						<i class='bx bx-star'></i>
+						<i class='bx bx-star'></i>
+					</div>
+				</div>
+				<div class="hire-me">
+					<h3>Hire me</h3>
+				</div>
+			</div>
+		</div>
+    </div>
+{% endblock %}
