@@ -4,15 +4,16 @@ from .models import Account
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
-
+from django.contrib.auth.decorators import login_required
+from .filters import *
 # Create your views here.
 def index(request):
     return render(request, 'home/index.html')
 
 
 def Login_page(request):
-
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         username = request.POST.get('username', 'null')
         password = request.POST.get('password', 'null')
@@ -30,8 +31,9 @@ def Logout_page(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     form1 = CreationUserForm()
-
     if request.method == 'POST':
         form1 = CreationUserForm(request.POST)
         if form1.is_valid():
@@ -48,6 +50,8 @@ def register(request):
 
 
 def register2(request, pk):
+    if request.user.is_authenticated:
+        return redirect('home')
     form2 = CreationAccountForm()
     if request.method == 'POST':
         form2 = CreationAccountForm(request.POST)
@@ -66,20 +70,26 @@ def register2(request, pk):
 
 
 def home(request):
+    acconts = Account.objects.all()
+    #filterjob = AccontFilter()
+    context = {'acconts': acconts}
+    return render(request, 'home/home.html', context)
 
-    return render(request, 'home/home.html')
 
-
+@login_required(login_url='Login')
 def MyAccount(request):
     user = request.user
     account = Account.objects.get(user=user)
-    context = {'user': user, 'account': account}
+    comments = Rating.objects.filter(Worker=account)
+    context = {'user': user, 'account': account, 'comments': comments}
     return render(request, 'home/your_Account.html', context)
 
 
+@login_required(login_url='Login')
 def edit_MyAccount(request):
     user = request.user
     account = Account.objects.get(user=user)
+    comments = Rating.objects.filter(Worker=account)
     form1 = EditionUserForm(instance=user)
     form2 = EditAccountForm(instance=account)
     if request.method == 'POST':
@@ -95,13 +105,16 @@ def edit_MyAccount(request):
             print("--------------------------------------")
             print(form2.errors)
             print("--------------------------------------")
-    context = {'user': user, 'account': account, 'form1': form1, 'form2': form2}
+    context = {'user': user, 'account': account, 'form1': form1, 'form2': form2, 'comments': comments}
     return render(request, 'home/edit_MyAccount.html', context)
 
 
+@login_required(login_url='Login')
 def Account_page(request, pk):
-    employee = Account.objects.get(user=request.user)
     user = User.objects.get(pk=pk)
+    if request.user == user:
+        return redirect('MyAccount')
+    employee = Account.objects.get(user=request.user)
     account = Account.objects.get(user=user)
     comments = Rating.objects.filter(Worker=account)
     form = CreationRatingForm()

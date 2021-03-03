@@ -1,6 +1,6 @@
 {% extends 'home/layout.html' %}
 {% load static %}
-{% block title %} Log in {% endblock %}
+{% block title %} Edit Account {% endblock %}
 {% block body %}
     <div class="container">
         <form action="" method="POST" enctype="multipart/form-data">
@@ -30,18 +30,13 @@
             </form>
         <div class="comments">
             <h3>Last Comments</h3>
+            {% for comment in comments %}
             <div class="comment">
-                <h4>name of employ</h4>
-                <p> comment</p>
+                <a href="{% url 'Account' pk=comment.employer.user.pk %}"><img src="{{comment.employer.Acc_pic.url}}" class="img-comment">
+	                <div><h4>{{ comment.employer.user.first_name }} {{ comment.employer.user.last_name }}</h4></div></a>
+                <p>{{ comment.Comment }}</p>
             </div>
-            <div class="comment">
-                <h4>name of employ</h4>
-                <p> comment</p>
-            </div>
-            <div class="comment">
-                <h4>name of employ</h4>
-                <p> comment</p>
-            </div>
+	        {% endfor %}
         </div>
     </div>
 {% endblock %}

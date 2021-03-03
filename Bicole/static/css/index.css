@@ -78,6 +78,7 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 /*button style*/
 .btn{
+    cursor: pointer;
     text-decoration: none;
     padding:  6px 10px;
     background: #2041B6;

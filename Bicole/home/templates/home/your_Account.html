@@ -1,6 +1,6 @@
 {% extends 'home/layout.html' %}
 {% load static %}
-{% block title %} Log in {% endblock %}
+{% block title %} Account of {{ user.first_name }} {{ user.last_name }} {% endblock %}
 {% block body %}
     <div class="container">
         <div class="personal-info">
@@ -42,7 +42,7 @@
 	        {% endif %}
 	        {% for comment in comments %}
             <div class="comment">
-                <a href=""><img src="{{comment.employer.Acc_pic.url}}" class="img-comment">
+                <a href="{% url 'Account' pk=comment.employer.user.pk %}"><img src="{{comment.employer.Acc_pic.url}}" class="img-comment">
 	                <div><h4>{{ comment.employer.user.first_name }} {{ comment.employer.user.last_name }}</h4></div></a>
                 <p>{{ comment.Comment }}</p>
             </div>

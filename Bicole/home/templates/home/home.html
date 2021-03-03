@@ -1,6 +1,6 @@
 {% extends 'home/layout.html' %}
 {% load static %}
-{% block title %} Log in {% endblock %}
+{% block title %} Home {% endblock %}
 {% block body %}
 <div class="container2">
 <div>
@@ -12,12 +12,13 @@
 			</form>
 		</div>
 		<div class="card-list">
+			{% for accont in acconts %}
 			<div class="card-wrapper">
 				<div class="card">
-					<img src="{% static 'img/image.jfif' %}" alt="">
-					<h3>nom/prenom</h3>
-					<h4>Job</h4>
-					<div class="stars">
+					<img src="{{accont.Acc_pic.url}}" alt="">
+					<h3>{{ accont.user.first_name }} {{ accont.user.last_name }}</h3>
+					<h4>{{ accont.job }}</h4>
+					<div style="display:none" class="stars">
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
 						<i class='bx bxs-star'></i>
@@ -28,7 +29,9 @@
 				<div class="hire-me">
 					<h3>Hire me</h3>
 				</div>
+
 			</div>
+			{% endfor %}
 		</div>
     </div>
 {% endblock %}

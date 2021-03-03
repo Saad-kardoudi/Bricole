@@ -7,7 +7,6 @@
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'/>
     <link rel="shortcut icon" href="{% static 'icon/icons8_job_seeker_24px.png' %}" />
 	<script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="{% static 'js\simple-rating.js' %}"></script>
     <title>{% block title %}{% endblock %}</title>
@@ -21,7 +20,7 @@
 			<div class="nav-btn-left">
 				{% if request.user.is_authenticated %}
 				<div class="dropdown">
-					<a class="btn">{{ request.user }}</a>
+					<a class="btn" >{{ request.user }}</a>
 				  <div class="dropdown-content">
 					<a href="/MyAccount">Profile</a>
 				    <a href="/home">Home</a>
@@ -30,7 +29,7 @@
 				  </div>
 				</div>
 				{% else %}
-				<a href="/login" class="btn">Login</a>
+				<a href="/login" class="btn" >Login</a>
 				{% endif %}
 			</div>
 		</div>
