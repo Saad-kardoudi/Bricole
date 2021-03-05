@@ -16,7 +16,7 @@
 			<div class="card-wrapper">
 				<div class="card">
 					<img src="{{accont.Acc_pic.url}}" alt="">
-					<h3>{{ accont.user.first_name }} {{ accont.user.last_name }}</h3>
+					<a href="{% url 'Account' pk=accont.user.pk %}" style=""><h3>{{ accont.user.first_name }} {{ accont.user.last_name }}</h3></a>
 					<h4>{{ accont.job }}</h4>
 					<div style="display:none" class="stars">
 						<i class='bx bxs-star'></i>
@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="hire-me">
-					<h3>Hire me</h3>
+					<a href="{% url 'HireMe' pk=accont.user.pk %}" style=""><h3>Hire me</h3></a>
 				</div>
 
 			</div>

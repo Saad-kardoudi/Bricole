@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .filters import *
 # Create your views here.
+
+
 def index(request):
     return render(request, 'home/index.html')
 
@@ -40,11 +42,6 @@ def register(request):
             form1.save()
             userx = User.objects.get(username=request.POST.get('username', 'null'))
             return redirect('register2', userx.pk)
-        else:
-            print("form 1 isn't valid")
-            print("--------------------------------------")
-            print(form1.errors)
-            print("--------------------------------------")
     context = {'form1': form1}
     return render(request, 'home/register.html', context)
 
@@ -60,11 +57,6 @@ def register2(request, pk):
             userx = User.objects.get(pk=pk)
             messages.success(request, 'Account was created for '+userx.first_name+' '+userx.last_name)
             return redirect('Login')
-        else:
-            print("form 2 isn't valid")
-            print("--------------------------------------")
-            print(form2.errors)
-            print("--------------------------------------")
     context = {'pk': pk, 'form2': form2}
     return render(request, 'home/register2.html', context)
 
@@ -99,12 +91,6 @@ def edit_MyAccount(request):
             form1.save()
             form2.save()
             return redirect('MyAccount')
-        else:
-            print("--------------------------------------")
-            print(form1.errors)
-            print("--------------------------------------")
-            print(form2.errors)
-            print("--------------------------------------")
     context = {'user': user, 'account': account, 'form1': form1, 'form2': form2, 'comments': comments}
     return render(request, 'home/edit_MyAccount.html', context)
 
@@ -122,10 +108,36 @@ def Account_page(request, pk):
         form = CreationRatingForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
-            print("--------------------------------------")
-            print(form.errors)
-            print("--------------------------------------")
     context = {'user': user, 'account': account, 'form': form, 'employee': employee, 'comments': comments}
     return render(request, 'home/your_Account.html', context)
 
+
+@login_required(login_url='Login')
+def hire_me(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.user == user:
+        return redirect('home')
+    employee = Account.objects.get(user=request.user)
+    account = Account.objects.get(user=user)
+    comments = Rating.objects.filter(Worker=account)
+    form = CreationHireMeForm()
+    if request.method == 'POST':
+        form = CreationHireMeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'user': user, 'account': account, 'form': form, 'employee': employee, 'comments': comments}
+    return render(request, 'home/Hire_me.html', context)
+
+
+@login_required(login_url='Login')
+def ShowHiring(request, pk):
+    hireme = Hire_me.objects.get(pk=pk)
+    userx = hireme.Worker.user
+    if request.user.pk != userx.pk:
+        return redirect('home')
+    user = hireme.employer.user
+    account = hireme.employer
+    comments = Rating.objects.filter(Worker=account)
+    context = {'user': user, 'account': account, 'comments': comments, 'hireme': hireme}
+    return render(request, 'home/Hire_me.html', context)

@@ -57,3 +57,6 @@
     }
 </script>
 {% endblock %}
+{% if comments is None %}
+{% block foot %}position: fixed;bottom: 0px;width: 100vw;{% endblock %}
+{%endif%}

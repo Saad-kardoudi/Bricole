@@ -40,7 +40,6 @@ class Hire_me (models.Model):
     Worker = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='worker_1')
     employer = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='employer_1')
     Disciption = models.CharField(max_length=500)
-    job_titel = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
 
 

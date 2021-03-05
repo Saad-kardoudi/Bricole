@@ -69,3 +69,14 @@ class CreationRatingForm(ModelForm):
 			'Comment': forms.Textarea(attrs={"rows": 2, "cols": 30, 'class': 'textarea-inputs', 'placeholder': 'Comment'}),
 			'rate': forms.NumberInput(attrs={'class': 'rating'}),
 		}
+
+
+class CreationHireMeForm(ModelForm):
+	class Meta:
+		model = Hire_me
+		fields = ['Worker', 'employer', 'Disciption']
+		widgets = {
+			'Worker': forms.TextInput(attrs={'style': 'visibility: hidden;'}),
+			'employer': forms.TextInput(attrs={'style': 'visibility: hidden;'}),
+			'Disciption': forms.Textarea(attrs={"rows": 2, "cols": 30, 'class': 'textarea-inputs', 'placeholder': 'describe your mini job '}),
+		}
