@@ -21,11 +21,11 @@
 			<div class="nav-btn-left">
 				{% if request.user.is_authenticated %}
 				<div class="dropdown">
-					<a class="btn" >{{ request.user }}</a>
+					<a class="btn-over" >{{ request.user }}</a>
 				  <div class="dropdown-content">
 					<a href="/MyAccount">Profile</a>
 				    <a href="/home">Home</a>
-					<a href="#">Link 2</a>
+					<a href="/MyHiring">My Hiring</a>
 					<a href="/logout">Logout</a>
 				  </div>
 				</div>

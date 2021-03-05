@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'django_filters',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

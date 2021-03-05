@@ -60,6 +60,9 @@
 	    form_input[2].value="{{ employee.id }}";
     </script>
 {% endblock %}
+
+{% block foot %}
 {% if comments is None %}
-{% block foot %}position: fixed;bottom: 0px;width: 100vw;{% endblock %}
+position: fixed;bottom: 0px;width: 100vw;
 {%endif%}
+{% endblock %}

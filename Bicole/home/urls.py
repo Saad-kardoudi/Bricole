@@ -11,6 +11,6 @@ urlpatterns = [
     path('Account/<str:pk>', views.Account_page, name='Account'),
     path('editAccount/', views.edit_MyAccount, name='editAccount'),
     path('HireMe/<str:pk>', views.hire_me, name='HireMe'),
-    path('MyHiring/', views.hire_me, name='MyHiring'),
+    path('MyHiring/', views.myhiring, name='MyHiring'),
     path('ShowHiring/<str:pk>', views.ShowHiring, name='ShowHiring'),
 ]

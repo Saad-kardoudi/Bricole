@@ -1,0 +1,41 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block title %} My Hiring {% endblock %}
+{% block body %}
+<div class="container">
+  <br>
+  <h2>My Hiring</h2>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Employeer</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for hireme in hiremes %}
+      <tr>
+        <td><img class="img-comment" src="{{hireme.employer.Acc_pic.url}}"></td>
+        <td>{{hireme.employer.user.first_name}} {{hireme.employer.user.last_name}}</td>
+        <td>{{hireme.created_at|naturalday}}</td>
+        <td><a href="{% url 'ShowHiring' pk=hireme.id %}" class="btn-over">Show</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+{% block foot %}
+{% if hiremes is None %}
+position: fixed;bottom: 0px;width: 100vw;
+{%endif%}
+{% endblock %}

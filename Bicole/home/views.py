@@ -141,3 +141,10 @@ def ShowHiring(request, pk):
     comments = Rating.objects.filter(Worker=account)
     context = {'user': user, 'account': account, 'comments': comments, 'hireme': hireme}
     return render(request, 'home/Hire_me.html', context)
+
+
+def myhiring(request):
+    account = Account.objects.get(user=request.user)
+    hiremes = Hire_me.objects.filter(Worker=account)
+    context = {'hiremes': hiremes}
+    return render(request, 'home/MyHiring.html', context)
