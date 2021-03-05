@@ -51,7 +51,7 @@
 		    {% for comment in comments %}
 		    <div class="comment">
 			    <a href="{% url 'Account' pk=comment.employer.user.pk %}"><img src="{{comment.employer.Acc_pic.url}}" class="img-comment">
-				    <div><h4>{{ comment.employer.user.first_name }} {{ comment.employer.user.last_name }}</h4></div></a>
+				    <div><h4>{{ comment.employer.user.first_name }} {{ comment.employer.user.last_name }}</h4></div><div><small>{{ comment.created_at|naturaltime }}</small></div></a>
 			    <p>{{ comment.Comment }}</p>
 		    </div>
 		    {% endfor %}
